@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record 100 - MIT-BIH Arrhythmia Database</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --mit-red: #A31F34;
+            --mit-gray: #8A8B8C;
+            --mit-light-gray: #F2F2F2;
+            --mit-dark-blue: #0F4D90;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: white;
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .page-header {
+            background-color: var(--mit-light-gray);
+            padding: 40px 0;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .ecg-visualization {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .annotation-table {
+            font-size: 0.9rem;
+        }
+        
+        .annotation-table th {
+            background-color: var(--mit-light-gray);
+        }
+        
+        .badge-normal {
+            background-color: #28a745;
+        }
+        
+        footer {
+            background-color: var(--mit-light-gray);
+            padding: 30px 0;
+            margin-top: 50px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9rem;
+        }
+        
+        .lead-card {
+            background-color: var(--mit-light-gray);
+            border-left: 4px solid var(--mit-dark-blue);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">MIT-BIH DB</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="database.html">Database</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="documentation.html">Documentation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="download.html">Download</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="publications.html">Publications</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题区 -->
+    <header class="page-header">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="database.html">Database</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Record 100</li>
+                </ol>
+            </nav>
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h1>Record 100</h1>
+                    <p class="lead">Normal sinus rhythm</p>
+                </div>
+                <div>
+                    <span class="badge badge-normal p-2">Normal</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区 -->
+    <main class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="ecg-visualization">
+                    <h4>ECG Visualization</h4>
+                    <img src="https://via.placeholder.com/800x300/F2F2F2/8A8B8C?text=ECG+Waveform+for+Record+100" alt="ECG for Record 100" class="img-fluid mb-3">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-outline-secondary active">Lead II</button>
+                        <button type="button" class="btn btn-outline-secondary">V5</button>
+                        <button type="button" class="btn btn-outline-secondary">Both</button>
+                    </div>
+                    <div class="btn-group ms-2" role="group">
+                        <button type="button" class="btn btn-outline-secondary">Zoom In</button>
+                        <button type="button" class="btn btn-outline-secondary">Zoom Out</button>
+                        <button type="button" class="btn btn-outline-secondary">Pan</button>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header">Annotations</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table annotation-table">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Type</th>
+                                        <th>Channel</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>00:00:01.23</td>
+                                        <td><span class="badge bg-success">N</span></td>
+                                        <td>MLII</td>
+                                        <td>Normal beat</td>
+                                    </tr>
+                                    <tr>
+                                        <td>00:00:01.87</td>
+                                        <td><span class="badge bg-success">N</span></td>
+                                        <td>MLII</td>
+                                        <td>Normal beat</td>
+                                    </tr>
+                                    <tr>
+                                        <td>00:00:02.45</td>
+                                        <td><span class="badge bg-success">N</span></td>
+                                        <td>MLII</td>
+                                        <td>Normal beat</td>
+                                    </tr>
+                                    <!-- 更多注释行... -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <nav aria-label="Annotation navigation">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                </li>
+                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-header">Record Details</div>
+                    <div class="card-body">
+                        <ul class="list-unstyled">
+                            <li class="mb-3">
+                                <strong>Record ID:</strong> 100
+                            </li>
+                            <li class="mb-3">
+                                <strong>Duration:</strong> 30 minutes
+                            </li>
+                            <li class="mb-3">
+                                <strong>Sampling Rate:</strong> 360 Hz
+                            </li>
+                            <li class="mb-3">
+                                <strong>Channels:</strong> MLII, V5
+                            </li>
+                            <li class="mb-3">
+                                <strong>Subject:</strong> Male, 69 years old
+                            </li>
+                            <li class="mb-3">
+                                <strong>Annotations:</strong> 2,273 beats
+                            </li>
+                            <li class="mb-3">
+                                <strong>File Size:</strong> 2.1 MB (header + data)
+                            </li>
+                        </ul>
+                        <div class="d-grid gap-2">
+                            <a href="#" class="btn btn-primary">Download Record</a>
+                            <a href="#" class="btn btn-outline-secondary">View Raw Data</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lead-card">
+                    <h5>Lead Information</h5>
+                    <p><strong>MLII (Modified Lead II):</strong> Left leg (LL) to right arm (RA)</p>
+                    <p><strong>V5:</strong> Fifth precordial lead</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">Beat Type Statistics</div>
+                    <div class="card-body">
+                        <img src="https://via.placeholder.com/300x200/F2F2F2/8A8B8C?text=Beat+Type+Distribution" alt="Beat Type Stats" class="img-fluid mb-3">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><span class="badge bg-success">N</span> Normal: 2,200 (96.8%)</li>
+                            <li class="mb-2"><span class="badge bg-warning">L</span> Left bundle branch block: 50 (2.2%)</li>
+                            <li class="mb-2"><span class="badge bg-info">R</span> Right bundle branch block: 23 (1.0%)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>MIT-BIH Arrhythmia Database</h5>
+                    <p>The MIT-BIH Arrhythmia Database is the most widely used test collection for evaluation of arrhythmia detectors.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="contact.html">Contact</a></li>
+                        <li class="list-inline-item"><a href="license.html">License</a></li>
+                        <li class="list-inline-item"><a href="privacy.html">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
